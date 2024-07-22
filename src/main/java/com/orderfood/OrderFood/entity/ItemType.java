@@ -2,8 +2,9 @@ package com.orderfood.OrderFood.entity;
 
 public enum ItemType {
     BURGER,
-    FRIES,
+    DESSERT,
     COKE,
     PIZZA,
-    SALAD
+    SALAD,
+    BEVERAGE
 }
