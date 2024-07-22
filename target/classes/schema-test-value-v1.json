@@ -1,0 +1,96 @@
+{
+  "$id": "http://example.com/myURI.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "description": "Sample schema to help you get started.",
+  "fields": [
+    {
+      "name": "orderId",
+      "type": "string"
+    },
+    {
+      "name": "customerId",
+      "type": "string"
+    },
+    {
+      "name": "restaurantId",
+      "type": "string"
+    },
+    {
+      "name": "orderDate",
+      "type": "string"
+    },
+    {
+      "name": "status",
+      "type": "string"
+    },
+    {
+      "name": "items",
+      "type": {
+        "items": {
+          "fields": [
+            {
+              "name": "itemId",
+              "type": "string"
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "quantity",
+              "type": "int"
+            },
+            {
+              "name": "price",
+              "type": "double"
+            }
+          ],
+          "name": "Item",
+          "type": "record"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "name": "totalAmount",
+      "type": "double"
+    },
+    {
+      "name": "deliveryAddress",
+      "type": {
+        "fields": [
+          {
+            "name": "street",
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "name": "zipCode",
+            "type": "string"
+          }
+        ],
+        "name": "Address",
+        "type": "record"
+      }
+    },
+    {
+      "name": "paymentMethod",
+      "type": "string"
+    },
+    {
+      "name": "paymentStatus",
+      "type": "string"
+    }
+  ],
+  "name": "OrderPlaced",
+  "title": "SampleRecord",
+  "type": "object"
+}
