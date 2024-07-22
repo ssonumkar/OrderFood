@@ -25,4 +25,12 @@ public class GlobalExceptionHandler {
         ExceptionResponse response = new ExceptionResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Invalid Input");
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @ExceptionHandler(PaymentNotCompletedException.class)
+    public ResponseEntity<ExceptionResponse> handlePaymentIncomplete(Exception ex) {
+        // Log the exception (use a logging framework in a real application)
+        System.err.println("Unhandled exception: " + ex.getMessage());
+        ExceptionResponse response = new ExceptionResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
