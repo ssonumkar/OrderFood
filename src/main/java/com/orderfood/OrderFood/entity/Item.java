@@ -1,5 +1,6 @@
 package com.orderfood.OrderFood.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,5 +24,7 @@ public class Item {
     private double price;
 
     @ManyToOne
+    @JoinColumn(name="order_id", nullable=false)
+    @JsonIgnore
     private Order order;
 }
